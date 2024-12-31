@@ -10,6 +10,9 @@
 
 <h1>Products</h1>
 
+<!-- Links to ProductsController.new action-->
+<%= link_to "New product", new_product_path %>
+
 <!––loops through each product in the `@products ActiveRecord::Relation` object––>
 <!--and renders a <div> tag containing the product name-->
 <div id="products">
