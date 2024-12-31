@@ -12,3 +12,24 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 end
+
+# added from section 9.3 of rails guide
+Rails.application.routes.draw do
+  # get "/products", to: "products#index"
+
+  # get "/products/new", to: "products#new"
+  # post "/products", to: "products#create"
+
+  # get "/products/:id", to: "products#show"
+
+  # get "products/:id/edit", to: "products#edit"
+  # patch "/products/:id", to: "products#update"
+  # put "/products/:id", to: "products#update"
+
+  # delete "/products/:id", to: "products#destroy"
+
+  # all of the above can be replaced by this shortcut:
+  resources :products
+  root "products#index"
+end
+
