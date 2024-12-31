@@ -16,7 +16,9 @@
     
     <% @products.each do |product| %>
         <div>
-            <%= product.name %>
+            <a href="/products/<%= product.id %>">
+                <%= product.name %>
+            </a>
         </div>
     <% end %>
 </div>

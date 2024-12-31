@@ -28,7 +28,10 @@ Rails.application.routes.draw do
 
   # delete "/products/:id", to: "products#destroy"
 
-  # all of the above can be replaced by this shortcut:
+  ################################################
+
+  # all of the above can be replaced by this shortcut, which generates 
+  # `/products/:id` as a route that points to `products#show`
   resources :products
   root "products#index"
 end
