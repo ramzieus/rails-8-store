@@ -16,9 +16,9 @@
     
     <% @products.each do |product| %>
         <div>
-            <a href="/products/<%= product.id %>">
-                <%= product.name %>
-            </a>
+        <!––# `link_to` accepts the display content for link (here, product.name),––>
+        <!––# and the path/url to link to for the href attribute (product)––>
+            <%= link_to product.name, product %>
         </div>
     <% end %>
 </div>
