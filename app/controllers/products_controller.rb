@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only: %i[ show edit update ]
+
   # this method is an Action; even though it's empty, Rails will default to
   # rendering a template with the matching name
   def index
@@ -6,6 +8,9 @@ class ProductsController < ApplicationController
 
     # adding database query and assigning it to instance var
     @products = Product.all
+  end
+
+  def show
   end
 
   # here, `show` defines singular `@product` because it's loading a single record
@@ -38,8 +43,23 @@ class ProductsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @product.update(product_params)
+      redirect_to @product
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   # to filter for security, this is private
   private
+    def set_product
+      @product = Product.find(params[:id])
+    end
+
     # here we tell rails to inspect the params and ensure there is a key named
     # `:product` with an array of parameters as the value. 
     # The only permitted parameters for products is :name and Rails will ignore
