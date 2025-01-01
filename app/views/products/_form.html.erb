@@ -1,0 +1,15 @@
+<!--> Using a local variable here instead of `@product`<-->
+<%= form_with model: product do |form| %>
+    <div>
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+    </div>
+
+    <div>
+        <%= form.submit %>
+    </div>
+<% end %>
+
+<!--> Using local vars allows partials to be reused multiple times on the same
+page with a different value each time. This comes in handy when rendering
+lists of items like an index page. <-->

@@ -2,16 +2,9 @@
 form to create products. This helper uses a form builder to handle things like 
 CSRF tokens, generating the URL based upon the model: provided, and even tailoring
 the submit button text to the model.<-->
+<!--> Form has been abstracted into a partial in same dir <-->
 
 <h1>New product</h1>
 
-<%= form_with model: @product do |form| %>
-    <div>
-        <%= form.label :name %>
-        <%= form.text_field :name %>
-    </div>
-
-    <div>
-        <%= form.submit %>
-    </div>
-<% end %>
+<%= render "form", product: @product %>
+<%= link_to "Cancel", products_path %>
