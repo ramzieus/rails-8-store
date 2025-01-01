@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: %i[ show edit update ]
+  before_action :set_product, only: %i[ show edit update destroy ]
 
   # this method is an Action; even though it's empty, Rails will default to
   # rendering a template with the matching name
@@ -52,6 +52,11 @@ class ProductsController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @product.destroy
+    redirect_to products_path
   end
 
   # to filter for security, this is private
