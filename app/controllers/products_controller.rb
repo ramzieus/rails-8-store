@@ -72,6 +72,6 @@ class ProductsController < ApplicationController
     # any other parameters.
     # This protects our application from malicious users who might try to hack our app
     def product_params
-      params.expect(product: [ :name ])
+      params.expect(product: [ :name, :description ])
     end
 end
