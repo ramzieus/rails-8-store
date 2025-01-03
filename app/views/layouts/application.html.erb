@@ -25,7 +25,9 @@
   <body>
     <nav>
       <%= link_to "Home", root_path %>
-      <!--> displays a logout button only if user authenticated <-->
+      <%=# displays login button only if user authenticated %>
+      <%= link_to "Login", new_session_path unless authenticated? %>
+      <%=# displays a logout button only if user authenticated %>
       <%= button_to "Log out", session_path, method: :delete if authenticated? %>
     </nav>
 
