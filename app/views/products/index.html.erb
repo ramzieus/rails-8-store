@@ -8,7 +8,7 @@
 # set correctly in the controller
 <%= debug @products %>
 
-<h1>Products</h1>
+<h1><%= t ".title" %></h1>
 
 <!-- Links to ProductsController.new action-->
 <%= link_to "New product", new_product_path if authenticated? %>
