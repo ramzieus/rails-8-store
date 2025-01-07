@@ -36,7 +36,9 @@ Rails.application.routes.draw do
 
   # all of the above can be replaced by this shortcut, which generates 
   # `/products/:id` as a route that points to `products#show`
-  resources :products
+  resources :products do
+    resources :subscribers, only: [ :create ]
+  end
   root "products#index"
 end
 
