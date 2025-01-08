@@ -15,7 +15,7 @@ class ProductsController < ApplicationController
   end
 
   # here, `show` defines singular `@product` because it's loading a single record
-  # from the db, ie, "show this one product". 
+  # from the db, ie, "show this one product".
   # we use plural `@products` in `index` because we're loading multiple products
   def show
     @product = Product.find(params[:id])
@@ -67,7 +67,7 @@ class ProductsController < ApplicationController
     end
 
     # here we tell rails to inspect the params and ensure there is a key named
-    # `:product` with an array of parameters as the value. 
+    # `:product` with an array of parameters as the value.
     # The only permitted parameters for products is :name and Rails will ignore
     # any other parameters.
     # This protects our application from malicious users who might try to hack our app

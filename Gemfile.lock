@@ -109,6 +109,7 @@ GEM
     et-orbi (1.2.11)
       tzinfo
     ffi (1.17.1-x64-mingw-ucrt)
+    fiddle (1.1.2)
     fugit (1.11.1)
       et-orbi (~> 1, >= 1.2.11)
       raabro (~> 1.4)
@@ -340,6 +341,7 @@ DEPENDENCIES
   brakeman
   capybara
   debug
+  fiddle
   image_processing (~> 1.2)
   importmap-rails
   jbuilder

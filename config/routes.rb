@@ -34,7 +34,7 @@ Rails.application.routes.draw do
 
   ################################################
 
-  # all of the above can be replaced by this shortcut, which generates 
+  # all of the above can be replaced by this shortcut, which generates
   # `/products/:id` as a route that points to `products#show`
   resources :products do
     resources :subscribers, only: [ :create ]
@@ -43,4 +43,3 @@ Rails.application.routes.draw do
 
   resource :unsubscribe, only: [ :show ]
 end
-
