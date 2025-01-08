@@ -14,6 +14,7 @@ services:
     startCommand: "bundle exec rails server"
     envVars:
       - key: DATABASE_URL
+        value: "postgresql://mysite:6TvygIJXnAho46CYsiPOB2yTun6EGkKC@dpg-ctvea7dsvqrc7391mql0-a/mysite_ug54"
         fromDatabase:
           name: mysite
           property: connectionString
@@ -21,3 +22,8 @@ services:
         sync: false
       - key: WEB_CONCURRENCY
         value: 2 # sensible default
+
+# If you don’t set WEB_CONCURRENCY, Rails determines a value based on the runtime’s
+#  physical CPU count. This might result in your application running out of memory
+# immediately on boot. We recommend setting this value to 2 as a default, but also
+# optimizing this value for your own application.
