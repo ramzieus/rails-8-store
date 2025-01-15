@@ -14,7 +14,6 @@ services:
     startCommand: "bundle exec rails server"
     envVars:
       - key: DATABASE_URL
-        value: "postgresql://mysite:6TvygIJXnAho46CYsiPOB2yTun6EGkKC@dpg-ctvea7dsvqrc7391mql0-a/mysite_ug54"
         fromDatabase:
           name: mysite
           property: connectionString
