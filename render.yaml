@@ -17,6 +17,7 @@ services:
         fromDatabase:
           name: mysite
           property: connectionString
+      - key: STORE_DATABASE_PASSWORD
       - key: RAILS_MASTER_KEY
         sync: false
       - key: WEB_CONCURRENCY
