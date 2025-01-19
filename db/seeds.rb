@@ -7,3 +7,14 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+# products
+
+# 3.times do |product|
+#   Product.create!
+#     name: "Test Product #{product}"
+#     inventory_count: 1
+#   end
+# end
+
+# puts "3 products created"
