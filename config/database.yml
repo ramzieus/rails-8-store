@@ -19,9 +19,27 @@ default: &default
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
+sqlite: &sqlite
+  adapter: sqlite3
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+
 development:
-  <<: *default
-  database: store_development
+  primary:
+    <<: *default
+    database: store_development
+  cache:
+    <<: *sqlite
+    database: store_development_cache.sqlite3
+    migrations_paths: db/cache_migrate
+  queue:
+    <<: *sqlite
+    database: store_development_queue.sqlite3
+    migrations_paths: db/queue_migrate
+  cable:
+    <<: *sqlite
+    database: store_development_cable.sqlite3
+    migrations_paths: db/cable_migrate
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
@@ -78,21 +96,21 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  primary: &primary_production
+  primary:
     <<: *default
     url: <%= ENV['DATABASE_URL'] %>
-    # database: store_production
-    # username: store
+    database: store_production
+    username: store
     password: <%= ENV["STORE_DATABASE_PASSWORD"] %>
   cache:
-    <<: *primary_production
-    database: store_production_cache
+    <<: *sqlite
+    database: store_production_cache.sqlite3
     migrations_paths: db/cache_migrate
   queue:
-    <<: *primary_production
-    database: store_production_queue
+    <<: *sqlite
+    database: store_production_queue.sqlite3
     migrations_paths: db/queue_migrate
   cable:
-    <<: *primary_production
-    database: store_production_cable
+    <<: *sqlite
+    database: store_production_cable.sqlite3
     migrations_paths: db/cable_migrate
