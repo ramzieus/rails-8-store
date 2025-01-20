@@ -32,3 +32,9 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Ignore intellij idea files
+.idea
+
+# Ignore sqliite database
+*.sqlite3
